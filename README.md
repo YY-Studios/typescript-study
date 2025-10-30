@@ -1,6 +1,6 @@
 # 🚀 Sprint Mission 05
 
-> **FE19-Team6**의 스프린트 05 프로젝트입니다.  
+> **YY-Studios**의 스프린트 05 프로젝트입니다.  
 > 각자 개인 브랜치에서 기능을 구현하고, 브랜치별로 작업을 관리합니다.
 > main에는 직접 머지하지 않습니다.
 
@@ -8,11 +8,11 @@
 
 ## 🏗️ 프로젝트 개요
 
-- **조직명:** FE19-Team6  
+- **조직명:** YY-Studios  
 - **레포지토리:** `Sprint-Mission-05`  
 - **브랜치 규칙:** 각자 이름으로 브랜치 생성 후, 해당 브랜치 내에서 세부 작업 브랜치를 분기합니다.
   > 예시:  
-  > - `yujin` → `yujin/feat/1차작업`, `yujin/feat/2차작업`  
+  > - `yujin-main` → `yujin/feat/1차작업`, `yujin/feat/2차작업`  
 
 ---
 
@@ -23,9 +23,9 @@
 | **빌드 도구** | Vite |
 | **언어** | TypeScript |
 | **라우팅** | React Router |
-| **HTTP 통신** | Axios / Fetch |
-| **스타일링** | Tailwind CSS / Styled Components |
-| **패키지 관리** | npm / pnpm |
+| **HTTP 통신** | Axios |
+| **스타일링** | Tailwind CSS / Styled Components(유진) |
+| **패키지 관리** | npm(유진) / pnpm |
 | **품질 관리 (선택사항, 한다면 airbnb 규칙 적용)** | Prettier / ESLint / Husky |
 
 > - **Prettier:** 자동 코드 포맷팅  
@@ -37,7 +37,7 @@
 ## 🧩 협업 가이드
 
 - **작업 방식:**  
-  1. `main`에서 개인 브랜치 생성 (예: `yujin`)
+  1. `main`에서 개인 브랜치 생성 (예: `yujin-main`)
   2. 개인 브랜치 내에서 `feat/` 또는 `fix/` 브랜치 분기
   3. 세부 브랜치에서 기능 구현 및 커밋
   4. 각자 브랜치 내에서 코드 리뷰 및 수정 진행  
