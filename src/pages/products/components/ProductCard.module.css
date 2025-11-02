@@ -1,0 +1,36 @@
+.productCard {
+
+}
+.productCard .image {
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.productCard .image img {
+    height: 100%;
+}
+
+.productCard .info {
+    margin-top: 16px;
+
+}
+.productCard .info .tit {
+    font-size: 14px;
+    line-height: 24px;
+}
+.productCard .info .price {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+}
+.productCard .info .like {
+  display: flex;
+  align-items: center;
+  gap: 4px; 
+}
+.productCard .info .like .count {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #4B5563;
+}
