@@ -1,0 +1,25 @@
+.bestProductList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+    .bestProductList {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .bestProductList > *:nth-child(n+3) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .bestProductList {
+        grid-template-columns: 1fr;
+    }
+    .bestProductList > *:nth-child(n+2) {
+        display: none;
+    }
+}

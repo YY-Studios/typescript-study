@@ -1,0 +1,28 @@
+.generalWrap {
+    margin-top: 40px;
+}
+.generalPsoructList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+    .generalPsoructList {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .generalPsoructList > *:nth-child(n+6) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .generalPsoructList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .generalPsoructList > *:nth-child(n+3) {
+        display: none;
+    }
+}

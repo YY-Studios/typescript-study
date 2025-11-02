@@ -6,27 +6,27 @@ interface Menus {
   name: string;
   link: string;
 }
+const menus: Menus[] = [
+  {
+    name: '자유게시판',
+    link: '/notice',
+  },
+  {
+    name: '중고마켓',
+    link: '/items',
+  },
+];
 const Header = () => {
-  const menus: Menus[] = [
-    {
-      name: '자유게시판',
-      link: '/notice',
-    },
-    {
-      name: '중고마켓',
-      link: '/items',
-    },
-  ];
   return (
-    <div className={s.header}>
+    <header className={s.header}>
       <div className={s.left}>
-        <h1 className={s.logo}>
+        <a className={s.logo}>
           <img src={LogoImg} alt="판다마켓" />
-        </h1>
+        </a>
         <div className={s.menus}>
           {menus.map((menu) => {
             return (
-              <Link to={menu.link} className={s.menu}>
+              <Link key={menu.link} to={menu.link} className={s.menu}>
                 {menu.name}
               </Link>
             );
@@ -38,7 +38,7 @@ const Header = () => {
           <img src={ProfileImg} alt="프로필" />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
