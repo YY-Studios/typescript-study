@@ -1,6 +1,6 @@
 import s from './ProductCard.module.css';
 import likeDefault from '@assets/like_default.svg';
-import likeOn from '@assets/like_on.svg';
+// import likeOn from '@assets/like_on.svg';
 import { Link } from 'react-router-dom';
 interface ProductProps {
   id?: number;
