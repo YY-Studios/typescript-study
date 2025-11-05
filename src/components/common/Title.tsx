@@ -2,11 +2,11 @@ import type { ReactNode } from 'react';
 import s from './Title.module.css';
 interface TitleProps {
   children: ReactNode;
-  size: string;
-  whight: string;
+  size: 'sm' | 'md' | 'lg' | 'xlg';
+  weight: 'regiular' | 'bold';
 }
-const Title = ({ children, size, whight }: TitleProps) => {
-  return <strong className={`${s[size]} ${s[whight]}`}>{children}</strong>;
+const Title = ({ children, size, weight }: TitleProps) => {
+  return <strong className={`${s[size]} ${s[weight]}`}>{children}</strong>;
 };
 
 export default Title;

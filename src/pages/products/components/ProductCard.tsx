@@ -9,14 +9,15 @@ interface ProductProps {
   images?: string[];
 }
 const ProductCard = ({ product }: { product: ProductProps }) => {
+  const { id, name, price, images } = product;
   return (
-    <Link to={''} className={s.productCard}>
+    <Link to={`ewkfwefkwef/${id}`} className={s.productCard}>
       <div className={s.image}>
-        <img src={product.images?.[0]} alt="상품1" />
+        <img src={images?.[0] || ''} alt="상품1" />
       </div>
       <div className={s.info}>
-        <p className={s.tit}>아이패드 미니 팝니다.</p>
-        <p className={s.price}>50,000원</p>
+        <p className={s.tit}>{name}</p>
+        <p className={s.price}>{price}</p>
         <button className={s.like}>
           <img src={likeDefault} alt="" />
           <span className={s.count}>123</span>

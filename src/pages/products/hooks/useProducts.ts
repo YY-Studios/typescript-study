@@ -1,42 +1,34 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-
-interface ProductProps {
-  id?: number;
-  name?: string;
-  price?: number;
-  images?: string[];
-}
-
-interface useProductsPrams {
-  page?: number;
-  size?: number;
-  order?: string;
-}
+import type { ProductProps, ProductsPrams } from '@/types/product';
+import { productListApi } from '@/api/product/productListApi';
 
 export function useProducts({
   page,
-  size,
+  pageSize,
   order = 'recent',
-}: useProductsPrams) {
+}: ProductsPrams) {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(
-        `https://panda-market-api.vercel.app/products?page=${page}&pageSize=${size}&orderBy=${order}`,
-      )
-      .then((response) => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await productListApi.getProducts({
+          page,
+          pageSize,
+          order,
+        });
         setProducts(response.data.list);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
+        setError(null);
+      } catch (error: any) {
+        setError(error);
+      } finally {
         setLoading(false);
-      });
-  }, [page, size]);
+      }
+    };
+    fetchProducts();
+  }, [page, pageSize, order]);
 
-  return { products, loading };
+  return { products, loading, error };
 }

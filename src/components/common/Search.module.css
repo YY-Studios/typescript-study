@@ -1,0 +1,47 @@
+/* components/Search/Search.module.css */
+.searchWrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 42px;
+    width: 325px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    padding: 9px 20px 9px 16px;
+  }
+  
+  .searchWrapper.focused {
+    background-color: #ffffff;
+    border: 2px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+  
+  .searchIcon {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    color: #9ca3af;
+  }
+  
+  .searchWrapper.focused .searchIcon {
+    color: #3b82f6;
+  }
+  
+  .searchInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    color: #1f2937;
+    font-weight: 400;
+  }
+  
+  .searchInput::placeholder {
+    color: #9CA3AF;
+  }
+  
+
+  
+
+  
