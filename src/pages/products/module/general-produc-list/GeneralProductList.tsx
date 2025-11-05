@@ -2,7 +2,7 @@ import { useProducts } from '../../hooks/useProducts';
 import s from './GeneralProductList.module.css';
 import Title from '@/components/common/Title';
 import ProductCard from '../../components/ProductCard';
-import Filter from '../filter/filter';
+import Filter from '../filter/Filter';
 
 const GeneralProductList = () => {
   const { products, loading, error } = useProducts({
