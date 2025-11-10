@@ -3,14 +3,19 @@ import s from './GeneralProductList.module.css';
 import Title from '@/components/common/Title';
 import ProductCard from '../../components/ProductCard';
 import Filter from '../filter/Filter';
+import { useState } from 'react';
 
 const GeneralProductList = () => {
+  const [order, setOrder] = useState<'recent' | 'favorite'>('recent');
   const { products, loading, error } = useProducts({
     page: 1,
     pageSize: 10,
-    order: 'recent',
+    order,
   });
-
+  const handleChangeOrder = (newOrder: string) => {
+    setOrder(newOrder as 'recent' | 'favorite');
+    console.log(newOrder);
+  };
   if (error) {
     return (
       <div className={s.errorContainer}>
@@ -27,7 +32,7 @@ const GeneralProductList = () => {
         <Title size={'lg'} weight={'bold'}>
           전체 상품
         </Title>
-        <Filter></Filter>
+        <Filter onOrderChange={handleChangeOrder} order={order}></Filter>
       </div>
       <div className={s.generalPsoructList}>
         {products.map((product) => (

@@ -1,5 +1,5 @@
 import s from './Select.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Option {
   value: string;
@@ -8,20 +8,24 @@ interface Option {
 
 interface SelectProps {
   options: Option[];
-  // defaultValue?: string;
   placeholder?: string;
-  // onChange?: (value: string) => void;
+  onChange?: (value: string) => void;
+  order: 'recent' | 'favorite';
 }
 
-const Select = ({ options, placeholder }: SelectProps) => {
+const Select = ({ options, placeholder, onChange, order }: SelectProps) => {
   const [isopen, setIsopen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
+  useEffect(() => {
+    setSelectedValue(order);
+  }, [order]);
   const handleToggle = () => {
     setIsopen(!isopen);
   };
   const handleSelect = (value: string) => {
     setSelectedValue(value);
     setIsopen(!isopen);
+    onChange?.(value);
   };
 
   const selctedOption = options.find((otp) => otp.value === selectedValue);

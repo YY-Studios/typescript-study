@@ -8,12 +8,22 @@ const selectOptnios = [
   { value: 'favorite', label: '좋아요순' },
 ];
 
-const Filter = () => {
+interface FilterProps {
+  onOrderChange: (order: string) => void;
+  order: 'recent' | 'favorite';
+}
+
+const Filter = ({ onOrderChange, order }: FilterProps) => {
   return (
     <div className={s.filter}>
       <Search placeholder="검색어를 입력하세요"></Search>
       <Button>상품 등록하기</Button>
-      <Select options={selectOptnios} placeholder={'최신순'}></Select>
+      <Select
+        options={selectOptnios}
+        placeholder={'최신순'}
+        onChange={onOrderChange}
+        order={order}
+      ></Select>
     </div>
   );
 };
