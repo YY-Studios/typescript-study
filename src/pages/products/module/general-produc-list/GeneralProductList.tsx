@@ -8,14 +8,20 @@ import { useState } from 'react';
 const GeneralProductList = () => {
   const [order, setOrder] = useState<'recent' | 'favorite'>('recent');
   const [page, setPage] = useState(1);
+  const [keyword, setKeyword] = useState('');
   const { products, loading, error } = useProducts({
     page,
     pageSize: 10,
     order,
+    keyword,
   });
+  const handleChangeKeyword = (newKeyword: string) => {
+    setKeyword(newKeyword);
+    setPage(1);
+  };
   const handleChangeOrder = (newOrder: string) => {
     setOrder(newOrder as 'recent' | 'favorite');
-    setPage(1); // order 변경 시 첫 페이지로 리셋
+    setPage(1);
   };
   if (error) {
     return (
@@ -33,7 +39,11 @@ const GeneralProductList = () => {
         <Title size={'lg'} weight={'bold'}>
           전체 상품
         </Title>
-        <Filter onOrderChange={handleChangeOrder} order={order}></Filter>
+        <Filter
+          onOrderChange={handleChangeOrder}
+          onKeywordChange={handleChangeKeyword}
+          order={order}
+        ></Filter>
       </div>
       <div className={s.generalPsoructList}>
         {products.map((product) => (

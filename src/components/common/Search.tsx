@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import s from './Search.module.css';
 
-const Search = ({ placeholder }: { placeholder: string }) => {
+interface SearchProps {
+  placeholder: string;
+  onKeywordChange: (keyword: string) => void;
+}
+
+const Search = ({ placeholder, onKeywordChange }: SearchProps) => {
   const [value, setValue] = useState('');
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setValue(newValue);
+    onKeywordChange(newValue);
     console.log(newValue);
   };
   const handleFocus = () => {

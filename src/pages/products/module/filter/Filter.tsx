@@ -11,12 +11,16 @@ const selectOptnios = [
 interface FilterProps {
   onOrderChange: (order: string) => void;
   order: 'recent' | 'favorite';
+  onKeywordChange: (keyword: string) => void;
 }
 
-const Filter = ({ onOrderChange, order }: FilterProps) => {
+const Filter = ({ onOrderChange, onKeywordChange, order }: FilterProps) => {
   return (
     <div className={s.filter}>
-      <Search placeholder="검색어를 입력하세요"></Search>
+      <Search
+        placeholder="검색어를 입력하세요"
+        onKeywordChange={onKeywordChange}
+      ></Search>
       <Button>상품 등록하기</Button>
       <Select
         options={selectOptnios}

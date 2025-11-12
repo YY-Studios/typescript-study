@@ -6,6 +6,7 @@ export function useProducts({
   page,
   pageSize,
   order = 'recent',
+  keyword,
 }: ProductsPrams) {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,7 @@ export function useProducts({
           page,
           pageSize,
           orderBy: order,
+          keyword,
         });
         setProducts(response.data.list);
         setError(null);
