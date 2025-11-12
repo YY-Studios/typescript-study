@@ -7,14 +7,15 @@ import { useState } from 'react';
 
 const GeneralProductList = () => {
   const [order, setOrder] = useState<'recent' | 'favorite'>('recent');
+  const [page, setPage] = useState(1);
   const { products, loading, error } = useProducts({
-    page: 1,
+    page,
     pageSize: 10,
     order,
   });
   const handleChangeOrder = (newOrder: string) => {
     setOrder(newOrder as 'recent' | 'favorite');
-    console.log(newOrder);
+    setPage(1); // order 변경 시 첫 페이지로 리셋
   };
   if (error) {
     return (

@@ -8,7 +8,7 @@ export function useProducts({
   order = 'recent',
 }: ProductsPrams) {
   const [products, setProducts] = useState<ProductProps[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   useEffect(() => {
     const fetchProducts = async () => {
@@ -17,7 +17,7 @@ export function useProducts({
         const response = await productListApi.getProducts({
           page,
           pageSize,
-          order,
+          orderBy: order,
         });
         setProducts(response.data.list);
         setError(null);

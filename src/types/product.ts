@@ -9,5 +9,6 @@ export interface ProductsPrams {
   page?: number;
   pageSize?: number;
   order?: 'recent' | 'favorite';
+  orderBy?: 'recent' | 'favorite';
   keyword?: string;
 }
