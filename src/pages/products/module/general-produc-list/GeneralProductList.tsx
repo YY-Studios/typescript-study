@@ -68,4 +68,5 @@ const GeneralProductList = () => {
     </div>
   );
 };
+
 export default GeneralProductList;
