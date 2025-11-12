@@ -30,7 +30,7 @@ export function useProducts({
       }
     };
     fetchProducts();
-  }, [page, pageSize, order]);
+  }, [page, pageSize, order, keyword]);
 
   return { products, loading, error };
 }

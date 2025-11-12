@@ -3,26 +3,40 @@ import s from './GeneralProductList.module.css';
 import Title from '@/components/common/Title';
 import ProductCard from '../../components/ProductCard';
 import Filter from '../filter/Filter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const GeneralProductList = () => {
   const [order, setOrder] = useState<'recent' | 'favorite'>('recent');
   const [page, setPage] = useState(1);
   const [keyword, setKeyword] = useState('');
+  const [debouncedKeyword, setDebouncedKeyword] = useState('');
   const { products, loading, error } = useProducts({
     page,
     pageSize: 10,
     order,
-    keyword,
+    keyword: debouncedKeyword,
   });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedKeyword(keyword);
+      console.log(1);
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [keyword]);
+
   const handleChangeKeyword = (newKeyword: string) => {
     setKeyword(newKeyword);
     setPage(1);
   };
+
   const handleChangeOrder = (newOrder: string) => {
     setOrder(newOrder as 'recent' | 'favorite');
     setPage(1);
   };
+
   if (error) {
     return (
       <div className={s.errorContainer}>
