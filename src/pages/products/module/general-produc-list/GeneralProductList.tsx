@@ -17,6 +17,7 @@ const GeneralProductList = () => {
     keyword: debouncedKeyword,
   });
 
+  // 여기는 디바운스에요
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedKeyword(keyword);
@@ -67,5 +68,4 @@ const GeneralProductList = () => {
     </div>
   );
 };
-
 export default GeneralProductList;
