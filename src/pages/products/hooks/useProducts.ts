@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { ProductProps, ProductsPrams } from '@/types/product';
 import { productListApi } from '@/api/product/productListApi';
 
+// useProducts
 export function useProducts({
   page,
   pageSize,
