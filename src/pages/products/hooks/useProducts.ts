@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import type { ProductProps, ProductsPrams } from '@/types/product';
 import { productListApi } from '@/api/product/productListApi';
 
-// useProducts
+// 라라라라라랄라라라라라
+//안심심한데여
 export function useProducts({
   page,
   pageSize,

@@ -6,6 +6,8 @@ interface SearchProps {
   onKeywordChange: (keyword: string) => void;
 }
 
+// 테스트 주석
+// 들어가세요
 const Search = ({ placeholder, onKeywordChange }: SearchProps) => {
   const [value, setValue] = useState('');
   const [isFocused, setIsFocused] = useState<boolean>(false);
