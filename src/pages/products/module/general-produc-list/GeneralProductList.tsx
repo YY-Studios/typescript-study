@@ -3,6 +3,7 @@ import s from './GeneralProductList.module.css';
 import Title from '@/components/common/Title';
 import ProductCard from '../../components/ProductCard';
 import Filter from '../filter/Filter';
+import Pagenation from '../pagenation/Pagenation';
 import { useEffect, useState } from 'react';
 
 const GeneralProductList = () => {
@@ -65,6 +66,7 @@ const GeneralProductList = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Pagenation />
     </div>
   );
 };
